@@ -1,0 +1,100 @@
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="/" class="brand-link">
+      <img src="/static/assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">MF-User</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          
+        </div>
+        {% if user.is_authenticated %}
+        <div class="info">
+          <a href="" class="d-block">
+            {{ request.user.username }} - Logout
+          </a>
+        </div>
+      </div>
+      {% else %}
+      <div class="info">
+          <a href="pickupmanlogin" class="d-block">
+          <b> Login</b>
+          </a>
+        </div>
+      </div>
+      {% endif %}
+
+    
+
+     <!-- Sidebar Menu -->
+     {% if user.is_authenticated %}
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview {% if 'index' in segment %} menu-open {% endif %}">
+            <a href="/deshborad" class="nav-link {% if 'index' in segment %} active {% endif %}">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item has-treeview {% if 'layout' in segment %} menu-open {% endif %}">
+            <a href="/transactions" class="nav-link {% if 'layout' in segment %} active {% endif %}">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Transactions
+                
+              </p>
+            </a>
+            
+          </li>
+
+         
+         
+          <li class="nav-item has-treeview {% if 'ui-' in segment %} menu-open {% endif %}">
+            <a href="#" class="nav-link {% if 'ui-' in segment %} active {% endif %}">
+              <i class="nav-icon fas fa-tree"></i>
+              <p>
+                Profile
+                
+              </p>
+            </a>
+            
+          </li>
+          <li class="nav-item has-treeview {% if 'forms-' in segment %} menu-open {% endif %}">
+            <a href="/logout" class="nav-link {% if 'forms-' in segment %} active {% endif %}">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+               Logout
+               
+              </p>
+            </a>
+          </li>
+          {% else %}
+          <li class="nav-item has-treeview {% if 'tables-' in segment %} menu-open {% endif %}">
+            <a href="pickupmanlogin" class="nav-link ">
+              <p> <i class="nav-icon fas fa-table"></i>
+              
+              Login
+                
+              </p>
+            </a>
+            </li>
+            {% endif %}
+           
+          
+          
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+  
