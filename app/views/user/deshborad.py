@@ -8,31 +8,26 @@ from django import template
 from app.models import Transaction,User
 
 
-
 @login_required
 def DeshboradVeiw(request):
     data = {}
     userid = request.user.id
-    user = User.objects.filter(id = userid).first()
+    user = User.objects.filter(id=userid).first()
     total_amount = user.total_amount
-    data['total_amount']= total_amount
+    data['total_amount'] = total_amount
     
-    last_transactions = Transaction.objects.filter(user = user).latest('created_at')
+    last_transactions = Transaction.objects.filter(user=user).latest('created_at')
     data['last_transactions'] = last_transactions.transaction_amount
-    data ['type'] = last_transactions.transaction_type
+    data['type'] = last_transactions.transaction_type
     
     print("heyyy",data)
-    return render(request, 'deshborad.html',{'data':data})
-
-
+    return render(request, 'deshborad.html', {'data': data})
 
 
 def pages(request):
     context = {}
-
     try:
-        
-        load_template      = request.path.split('/')[-1]
+        load_template = request.path.split('/')[-1]
         context['segment'] = load_template
         
         html_template = loader.get_template( load_template )

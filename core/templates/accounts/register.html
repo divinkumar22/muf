@@ -45,7 +45,8 @@
           {% csrf_token %}
 
           <div class="input-group mb-3">
-            {{ form.username }}
+            <input type="text" name="username">
+<!--            {{ form.username }}-->
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-user"></span>
@@ -55,7 +56,8 @@
           <span class="text-error">{{ form.username.errors }}</span>
           
           <div class="input-group mb-3">
-            {{ form.email }}
+            <input type="email" name="email">
+<!--            {{ form.email }}-->
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
@@ -65,7 +67,8 @@
           <span class="text-error">{{ form.email.errors }}</span>
 
           <div class="input-group mb-3">
-            {{ form.password1 }}
+            <input type="password" name="password1">
+<!--            {{ form.password1 }}-->
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-lock"></span>
@@ -75,6 +78,7 @@
           <span class="text-error">{{ form.password1.errors }}</span>
 
           <div class="input-group mb-3">
+            <input type="password" name="password2">
             {{ form.password2 }}
             <div class="input-group-append">
               <div class="input-group-text">

@@ -8,13 +8,14 @@ from django.contrib.auth import models
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.db.models import fields
-from app.models import PickupMan, User,Otp
+from app.models import PickupMan, User, Otp
+
 
 class LoginForm(forms.Form):
     username = forms.CharField(
         widget=forms.TextInput(
             attrs={
-                "placeholder" : "Username",                
+                "placeholder": "Username",
                 "class": "form-control"
             }
         ))
@@ -25,6 +26,7 @@ class LoginForm(forms.Form):
                 "class": "form-control"
             }
         ))
+
 
 class SignUpForm(UserCreationForm):
     username = forms.CharField(
@@ -60,16 +62,20 @@ class SignUpForm(UserCreationForm):
         model = User
         fields = ('username', 'email', 'password1', 'password2')
 
+
 class UserLoginForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['username','password']
-class OTPform(forms.ModelForm):
+        fields = ['username', 'password']
+
+
+class OTPForm(forms.ModelForm):
     class Meta:
         model = Otp
         fields = ['otp']
 
+
 class pickupmanLoginForm(forms.ModelForm):
     class Meta:
-        model = PickupMan
-        fields = ['username','password']
+        model = User
+        fields = ['username', 'password']
