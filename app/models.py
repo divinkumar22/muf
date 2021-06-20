@@ -116,7 +116,7 @@ class Transaction(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.user.name
+        return self.user.user.name
 
 
 class Otp(models.Model):
