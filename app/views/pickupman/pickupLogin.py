@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.forms.utils import ErrorList
 from django.http import HttpResponse
-from rest_framework.exceptions import NotAuthenticated
+
 
 
 def pickupLoginView(request):
