@@ -1,33 +1,25 @@
-from django import forms
-from django.shortcuts import render
-from django.shortcuts import render, redirect
+
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.models import User
-from django.forms.utils import ErrorList
-from django.http import HttpResponse
-from authentication.forms import UserLoginForm
-from app.models import User,Otp
-from authentication.otp import OTP
-from datetime import datetime
+from app.models import NormalUser
+
 
 def UserLoginView(request):
-    form = UserLoginForm(request.POST or None)
     msg = None
     if request.method == 'POST':
-        
-        if form.is_valid():
-            username = form.cleaned_data.get("username")
-            password = form.cleaned_data.get("password")
-            user = authenticate(username=username, password=password)
-            if user is not None:
+        username = request.POST.get("account_no")
+        password = request.POST.get("password")
+        # user = authenticate(username=username, password=password)
+        user = NormalUser.objects.filter(account_no=username).first()
+        if user is not None and user.user.is_normaluser:
+            if user.user.check_password(password):
                 login(request, user)
-                return redirect("/deshborad")
+                return redirect("/dashboard")
             else:
-                
-                msg = 'Invalid credentials'
+                msg = "incorrect password"
         else:
-            msg = 'Error validating the form'
+            msg = 'Invalid credentials'
 
-    return render(request, "user_login.html", {"form": form, "msg" : msg})
+    return render(request, "user_login.html", {"msg": msg})
 
 

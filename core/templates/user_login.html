@@ -24,21 +24,26 @@
 
   <div class="content-wrapper">
     <div class=" justify-content-center">
-  <div class="form-group ">
+  <div class="form-group ml-5 col-6">
+    {% if msg %}
+          <small style="color: red;"><strong></strong>{{msg}}</small><br>
+    {% endif %}
   <form method = 'post'>
-  {% csrf_token %}
-                    <label class="col-form-label" for="inputSuccess"> username: </label>
-                    <input type="text" class="form-control is-valid col-md-6" id="inputSuccess" name="username" placeholder="Enter ..." reqiured>
-                     <label class="col-form-label" for="inputSuccess"> password: </label>
-                    <input type="text" class="form-control is-valid col-md-6" id="inputSuccess" name="password" placeholder="Enter ..." reqiured>
 
-                  </div>
+  {% csrf_token %}
+    <div class="mb-3">
+      <label class="col-form-label" for="inputSuccess"> Account Number: </label>
+      <input type="text" class="form-control col-md-6" id="inputSuccess" name="account_no" required placeholder="Account Number" reqiured>
+       <label class="col-form-label" for="inputSuccess"> password: </label>
+      <input type="password" class="form-control col-md-6" id="inputSuccess" name="password" required placeholder="Password" reqiured>
     </div>
-     <button type="submit" class="btn btn-primary mr-5">Send Otp</button>
-    </form>
+
+     <button type="submit" class="btn btn-primary float-center">Login</button>
+</form>
+      </div>
+    </div>
       <!-- /.card -->
 
-    </section>
     <!-- /.content -->
   </div>
 

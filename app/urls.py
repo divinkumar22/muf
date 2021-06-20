@@ -13,19 +13,17 @@ from app.views.user import deshborad,transactions
 from app.views.pickupman import pickupmanHome,pickupLogin
 
 urlpatterns = [
-    #The home page
     path('', home.Home, name='home'),
-    
-    
+
     # User Side
-    path('userHome',UserHome.userHome, name='UserHome'),
-    path('userLogin',UserLogin.UserLoginView, name='userLogin'),
+    path('userHome', UserHome.userHome, name='UserHome'),
+    path('userLogin', UserLogin.UserLoginView, name='userLogin'),
     path("logout", LogoutView.as_view(), name="logout"),
-    path('otp_verfiy/<int:pk>',otp_verfiy.Otp_verfiy,name='otp_verfiy'),
-    path('deshborad',deshborad.DeshboradVeiw,name='deshborad'),
-    path('transactions',transactions.TranactionVeiw,name='transactions'),
-    path('PickupMan',pickupmanHome.pickupmanHome, name='pickupman'),
-    path('pickupmanlogin',pickupLogin.pickupLoginView, name='pickupmanlogin'),
+    path('otp_verify/<int:pk>', otp_verfiy.Otp_verfiy, name='otp_verfiy'),
+    path('dashboard', deshborad.DeshboradVeiw, name='deshborad'),
+    path('transactions', transactions.TranactionVeiw, name='transactions'),
+    path('PickupMan', pickupmanHome.pickupmanHome, name='pickupman'),
+    path('pickupmanlogin', pickupLogin.pickupLoginView, name='pickupmanlogin'),
 
 
     # Admin side

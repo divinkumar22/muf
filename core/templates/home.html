@@ -45,7 +45,7 @@
   <div class="card-body">
     <h5 class="card-title">Primary card title</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href ='/userHome'><button type="button" class="btn btn-block btn-success btn-flat" >User</button></a>
+    <button type="button" id="user_button" onclick="submit('user');" class="btn btn-block btn-success btn-flat" >User</button>
   </div>
 </div>
 <div class="card text-white bg-primary mb-3 col-md-6  mr-5" style="max-width: 18rem;">
@@ -53,12 +53,15 @@
   <div class="card-body">
     <h5 class="card-title">Primary card title</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href='{% url 'pickupman' %}'><button type="button"  class="btn btn-block btn-success btn-flat">Pickup Man</button></a>
+    <button type="button" id="pickupman_button" onclick="submit('pickupman');"  class="btn btn-block btn-success btn-flat">Pickup Man</button>
   </div>
 </div>
 </div>
 </div>
 
+<form id = "user_or_pickupman">
+  <input type="hidden" name="next" id="next_page">
+</form>
 
     
 {% endblock content %}
@@ -76,5 +79,19 @@
   <script src="/static/assets/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="/static/assets/js/demo.js"></script>
+  <script>
+    function submit(next){
+      if(next == "pickupman"){
+        $("#user_or_pickupman").attr('action', '/PickupMan');
+      }
+      else if(next == "user"){
+        $("#user_or_pickupman"). attr('action', '/userHome');
+      }
+      $("#user_or_pickupman").submit()
+
+
+      $
+    }
+  </script>
 
 {% endblock javascripts %}

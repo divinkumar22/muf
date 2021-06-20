@@ -10,12 +10,8 @@ from django import template
 def pickupmanHome(request):
     
     context = {}
-    
-
-    html_template = loader.get_template( 'pickupman_home.html' )
+    html_template = loader.get_template('pickupman_home.html' )
     return HttpResponse(html_template.render(context, request))
-
-
 
 
 def pages(request):
@@ -26,7 +22,7 @@ def pages(request):
         load_template      = request.path.split('/')[-1]
         context['segment'] = load_template
         
-        html_template = loader.get_template( load_template )
+        html_template = loader.get_template(load_template )
         return HttpResponse(html_template.render(context, request))
         
     except template.TemplateDoesNotExist:
@@ -36,5 +32,5 @@ def pages(request):
 
     except:
     
-        html_template = loader.get_template( 'page-500.html' )
+        html_template = loader.get_template('page-500.html')
         return HttpResponse(html_template.render(context, request))

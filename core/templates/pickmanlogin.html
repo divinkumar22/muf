@@ -27,15 +27,15 @@
   <div class="form-group ">
   <form method = 'post'>
   {% csrf_token %}
-                    <label class="col-form-label" for="inputSuccess"> username: </label>
-                    <input type="text" class="form-control is-valid col-md-6" id="inputSuccess" name="username" placeholder="Enter ..." reqiured>
-                     <label class="col-form-label" for="inputSuccess"> password: </label>
-                    <input type="text" class="form-control is-valid col-md-6" id="inputSuccess" name="password" placeholder="Enter ..." reqiured>
+                    <label class="col-form-label" for="inputSuccess"> Username: </label>
+                    <input type="text" class="form-control is-valid col-md-6" id="inputSuccess" name="username" placeholder="Username..." reqiured>
+                     <label class="col-form-label" for="inputSuccess"> Password: </label>
+                    <input type="text" class="form-control is-valid col-md-6" id="inputSuccess" name="password" placeholder="password..." reqiured>
 
                   </div>
     </div>
     <p style="color:red">{{msg.msg}}</p>
-     <button type="submit" class="btn btn-primary mr-5">Send Otp</button>
+     <button type="submit" class="btn btn-primary mr-5">Login</button>
     </form>
       <!-- /.card -->
 

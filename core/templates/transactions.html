@@ -40,7 +40,6 @@
                     <th>Amount</th>
                     <th>Date</th>
                     <th>Pickupman Name</th>
-                    <th>Time</th>
                     <th>Transaction type</th>
                     
                   </tr>
@@ -56,9 +55,8 @@
               
                  
                     
-                    <td>{{i.transaction_amount}}</td>
-                    <td>{{i.transaction_amount}}</td>
-                    <td>{{i.transaction_amount}}</td>
+                    <td>{{i.created_at}}</td>
+                    <td>{{i.name}}</td>
                     {% if i.transaction_type == 'Credit' %}
                     <td style='color : red'><b>{{i.transaction_type}}</b></td>
                     {% else %}

@@ -5,7 +5,7 @@ from django.template import loader
 from django.http import HttpResponse
 from django import forms, template
 from app.models import Otp,User
-from authentication.forms import OTPform
+from authentication.forms import OTPForm
 
 
 
@@ -15,7 +15,7 @@ def Otp_verfiy(request,pk):
         print("user")
         user = User.objects.filter(pk = pk).first()
         print(user)
-        form = OTPform(request.POST or None)
+        form = OTPForm(request.POST or None)
         if form.is_valid():
             otp = form.cleaned_data.get("otp")
             if user:
@@ -29,10 +29,10 @@ def Otp_verfiy(request,pk):
 
             else:
                 print("hllwwwwwww")
-                return render(request,"otp.html")
+                return render(request, "otp.html")
         else:
             print(form.errors.as_data)
-            return render(request,"otp.html")
+            return render(request, "otp.html")
                 
     else:
         
