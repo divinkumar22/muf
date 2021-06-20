@@ -83,7 +83,7 @@ class NormalUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, default="")
     aadhaar_card = models.CharField(max_length=12, null=False, blank=False, default="")
     pan_card = models.CharField(max_length=20, null=False, blank=False, default="")
-    account_no = models.PositiveBigIntegerField(null=False, blank=False, unique=True, default=0)
+    account_no = models.TextField(null=False, blank=False, unique=True, default=0,max_length='100')
     total_amount = models.FloatField(null=False, blank=False, default=0)
     address = models.TextField(null=False, blank=False, default="")
     area = models.CharField(max_length=100, null=False, blank=False, default="")
@@ -129,3 +129,6 @@ class Otp(models.Model):
 
     def __str__(self):
         return str(self.user)
+
+class Amount(models.Model):
+    total_amount= models.BigIntegerField(null=True)
